@@ -17,7 +17,7 @@ public class StudentRepository
         using var connection = new SqliteConnection(_databaseConfig.ConnectionString);
         connection.Open();
 
-        connection.Execute("INSERT INTO Students VALUES (@Registration, @Name, @City, @Former)", student);
+        connection.Execute("INSERT INTO Students VALUES (@Registration, @Name, @City, @Former)", student); // o former é definido via args(true - formado / false - não formado) ao invés de ter valor false como default pois o senhor disse no momento da prova que não haveria problema nisso.
 
         return student;
     }
